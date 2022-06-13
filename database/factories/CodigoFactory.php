@@ -18,7 +18,7 @@ class CodigoFactory extends Factory
             'estudiante' => $this->faker->unique()->randomNumber(9),
             'representante' => $this->faker->unique()->randomNumber(9),
             'codigo' => Str::random(10),
-            'estado' => $this->faker->numberBetween($min = 0, $max = 0),
+            'estado' => $this->faker->randomElement(['Pendiente']),
         ];
     }
 }

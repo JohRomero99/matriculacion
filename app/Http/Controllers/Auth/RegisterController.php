@@ -73,6 +73,7 @@ class RegisterController extends Controller
     {
 
         $nuevoUsuario = User::create([
+            'cedula' => $data['cedula'],
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -85,7 +86,7 @@ class RegisterController extends Controller
     public function logout(Request $request){
 
         Auth::logout();
-        return redirect()->route('/register');
+        return redirect()->route('register');
 
     }
 
@@ -97,22 +98,31 @@ class RegisterController extends Controller
 
     public function codigo(Request $request){
 
-        $a = $request->input('codigo');
-
-        $codigo = Codigo::select('codigo')->where('codigo','=',$a)->get();
-
+        $codigo = Codigo::where('codigo','=',$request->input('codigo'))->pluck('id');
+        
         if ($codigo->isEmpty()) {
-
+            
             return redirect()->route('verify');
             
         }else{
 
-            return redirect()->route('register');
+            $verificar = Codigo::find($codigo[0]);
+
+            if($verificar->estado == "Verificado"){
+
+                return redirect()->route('verify');
+
+            }
+            elseif($verificar->estado == "Pendiente"){
+
+                $verificar->estado = "Verificado";
+                $verificar->save();
+                return redirect()->route('register');
+
+            }
 
         }
 
-
     }
-
 
 }

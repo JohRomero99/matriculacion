@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col mt-5">
             <div class="d-flex justify-content-center align-items-center">
-                <img src="https://i.ibb.co/jhw1MgB/proteger.png"  >
+                <img src="https://i.ibb.co/jhw1MgB/proteger.png">
             </div>
         </div>
         <div class="col">
@@ -39,9 +39,62 @@
                         @csrf
                         <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('haga clic aquí para solicitar otro') }}</button>.
                     </form>
+                    <div class="contador d-flex justify-content-center" id="ten-countdown"></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div>
+
+<style>
+    .contador {
+    text-align: center;
+    /* border: 5px solid #004853; */
+    display:inline;
+    padding: 5px;
+    color: #004853;
+    font-family: Verdana, sans-serif, Arial;
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+}
+</style>
+
+<script>
+
+    function countdown( elementName, minutes, seconds )
+{
+    var element, endTime, hours, mins, msLeft, time;
+
+    function twoDigits( n )
+    {
+        return (n <= 9 ? "0" + n : n);
+    }
+
+    function updateTimer()
+    {
+        msLeft = endTime - (+new Date);
+        if ( msLeft < 1000 ) {
+            element.innerHTML = "Tu enlace ha caducado";
+        } else {
+            time = new Date( msLeft );
+            hours = time.getUTCHours();
+            mins = time.getUTCMinutes();
+            element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
+            setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
+        }
+    }
+
+    element = document.getElementById( elementName );
+    endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
+    updateTimer();
+
+}
+
+countdown( "ten-countdown", 10, 0 );
+
+</script>
+
+
 @endsection

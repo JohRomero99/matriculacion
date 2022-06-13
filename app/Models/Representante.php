@@ -17,10 +17,11 @@ class Representante extends Model
     protected $fillable = [
         'cedula',
         'nombre',
-        'apellido',
-        'telefono',
-        'direccion',
-        'users_id',
+        'email',
+        // 'apellido',
+        // 'telefono',
+        // 'direccion',
+        // 'users_id',
     ];
 
     
