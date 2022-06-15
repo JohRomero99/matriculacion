@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -42,9 +42,9 @@
                                     
                                     <div class="col-md-2 m-auto" >
                                     <i class="fa-regular fa-circle-xmark"></i>
-                                        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
                                             <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
-                                        </svg> -->
+                                        </svg>
                                     </div>
                                 </div>
 
@@ -80,8 +80,50 @@
             </div>
         </div>
     </div>
+</div> -->
+
+
+<div class="container">
+    <div class="row align-items-center g-lg-5 py-5">
+      <div class="col-lg-7 text-center text-lg-start">
+        <h1 class="display-4 fw-bold lh-1 mb-3">Iniciar Sesión</h1>
+        <p class="col-lg-10 fs-4">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+      </div>
+      <div class="col-md-10 mx-auto col-lg-5">
+        <form class="p-4 p-md-5 border rounded-3 bg-white">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingInput" placeholder="ejemplo@gmail.com">
+            <label for="floatingInput">Usuario</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="id form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingPassword" placeholder="ejemplo@gmail.com">
+            <label for="floatingPassword">Password</label>
+          </div>
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> Recordar credenciales
+            </label>
+          </div>
+          <button class="w-100 btn btn-lg btn-dark" type="submit">Iniciar Sesión  <i class="bi bi-box-arrow-in-right"></i></button>
+            @if (Route::has('password.request'))
+                <a class="btn btn-link d-flex justify-content-center" href="{{ route('password.request') }}">
+                    {{ __('¿Olvidaste tu contraseña?') }}
+                </a>
+            @endif
+                <a class="btn btn-link d-flex justify-content-center" href="{{ route('verify') }}">
+                    {{ __('Crear Usuario y contraseña') }}
+                </a>
+            <!-- <hr class="my-4">
+          <small class="text-muted d-flex justify-content-center">NSC - Nuestra Señora Del Carmen</small> -->
+        </form>
+      </div>
+    </div>
 </div>
-<script>
-    
-</script>
+
+<style>
+  .id:focus {
+      border-bottom: 3px solid #8d4a26 !important;
+  }
+</style>
+
 @endsection

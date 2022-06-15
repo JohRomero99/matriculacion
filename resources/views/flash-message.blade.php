@@ -1,5 +1,5 @@
 @if ($message = Session::get('success'))
-<div class="container">
+<div class="container mt-3 my-3">
     <div class="alert alert-success alert-block">
         <button type="button" class="close" data-dismiss="alert">×</button>
         <strong>{{ $message }}</strong>

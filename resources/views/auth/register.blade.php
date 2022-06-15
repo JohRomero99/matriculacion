@@ -241,48 +241,51 @@
 </div> -->
 
 <div class="container">
-    <div class="mt-5">
-
-    <div class="container col-xl-10 col-xxl-8 px-4 py-1">
-    <div class="row align-items-center g-lg-5 py-5">
-      <div class="col-lg-7 text-center text-lg-start">
-        <h1 class="display-4 fw-bold lh-1 mb-3">Vertically centered hero sign-up form</h1>
-        <p class="col-lg-10 fs-4">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
-        
-      </div>
+    <div class="row align-items-center g-lg-5 py-2">
       <div class="col-md-10 mx-auto col-lg-5">
-        <form action="{{route('verificar.codigo')}}" class="p-4 p-md-5 border rounded-3 bg-light" method="POST" >
-          @csrf
-            <div class="mb-3">
-                <div class="d-flex justify-content-center">
-                    <label for="exampleInputEmail1" class="form-label"> <strong>Digita tu código*</strong> </label>
-                </div>
-                <input type="text" class="form-control text-center" id="exampleInputEmail1" aria-describedby="emailHelp" name="codigo" placeholder="Ej: GfadaCzxdZ"  >
-                    <div id="emailHelp" class="form-text">- ¡No compartas tu código con nadie!</div>
-                    <div id="emailHelp" class="form-text">- Ej: AbcF....xYz</div>
-                    <div id="emailHelp" class="form-text">- El código solo deberá ser ingresa una vez</div>
-                    <div class="d-flex justify-content-center">
-                    <label for="exampleInputEmail1" class="form-label mt-3"> <strong>Digita tu cédula*</strong> </label>
-                </div>
-                <input type="text" class="form-control text-center" id="exampleInputEmail1" aria-describedby="emailHelp" name="codigo" placeholder="Ej: 0956473521">
-                    <div id="emailHelp" class="form-text">- Cedula del representante</div>
-                <div class="d-flex justify-content-center">
-                  <button class="btn btn-dark mt-3" >Continuar</button>
-                </div>
+
+      <form class="p-4 p-md-5 border rounded-3 bg-light">
+            <div class="form-floating mb-3">
+                <input type="email" class="bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingInput" placeholder="ejemplo@gmail.com">
+                <label for="floatingInput">Correo</label>
             </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingPassword" placeholder="ejemplo@gmail.com">
+                <label for="floatingPassword">Usuario</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingPassword" placeholder="ejemplo@gmail.com">
+                <label for="floatingPassword">Contraseña</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingPassword" placeholder="ejemplo@gmail.com">
+                <label for="floatingPassword">Confirmar contraseña</label>
+            </div>
+            <button class="w-100 btn btn-lg btn btn-outline-dark" type="submit">¡Registrate!  <i class="bi bi-box-arrow-in-right"></i></button>
+            <hr class="my-4">
+            <small class="text-muted d-flex justify-content-center">NSC - Nuestra Señora Del Carmen</small>
         </form>
+
+
       </div>
-    </div>
-  </div>
+      <div class="col-lg-7 text-center text-lg-start">
 
+        <h1 class="display-4 fw-bold lh-1 mb-3">¡Registrate!</h1>
+        <p class="col-lg-10 fs-4">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.
 
-
-
-
-
+      </div>
     </div>
 </div>
 
+<style>
+  .id:focus {
+      border-bottom: 3px solid #8d4a26 !important;
+  }
+  .bg {
+    background: #E8F0FE !important;
+  }
+</style>
 
 
 @endsection()
+
