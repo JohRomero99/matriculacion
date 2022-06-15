@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-</head>
-<body>
-    
-<div class="container col-xl-10 col-xxl-8 px-4 py-5">
+@extends('layouts.plantilla')
+
+@section('content')
+
+<div class="container col-xl-10 col-xxl-8 px-4 py-1">
     <div class="row align-items-center g-lg-5 py-5">
       <div class="col-lg-7 text-center text-lg-start">
         <h1 class="display-4 fw-bold lh-1 mb-3">Vertically centered hero sign-up form</h1>
@@ -24,14 +14,19 @@
           @csrf
             <div class="mb-3">
                 <div class="d-flex justify-content-center">
-                    <label for="exampleInputEmail1" class="form-label">Digita tu código</label>
+                    <label for="exampleInputEmail1" class="form-label"> <strong>Digita tu código*</strong> </label>
                 </div>
-                <input type="text" class="form-control text-center" id="exampleInputEmail1" aria-describedby="emailHelp" name="codigo">
-                <div class="d-flex justify-content-center">
-                    <div id="emailHelp" class="form-text">¡No compartas tu código con nadie!</div>
+                <input type="text" class="form-control text-center" id="exampleInputEmail1" aria-describedby="emailHelp" name="codigo" placeholder="Ej: GfadaCzxdZ"  >
+                    <div id="emailHelp" class="form-text">- ¡No compartas tu código con nadie!</div>
+                    <div id="emailHelp" class="form-text">- Ej: AbcF....xYz</div>
+                    <div id="emailHelp" class="form-text">- El código solo deberá ser ingresa una vez</div>
+                    <div class="d-flex justify-content-center">
+                    <label for="exampleInputEmail1" class="form-label mt-3"> <strong>Digita tu cédula*</strong> </label>
                 </div>
+                <input type="text" class="form-control text-center" id="exampleInputEmail1" aria-describedby="emailHelp" name="codigo" placeholder="Ej: 0956473521">
+                    <div id="emailHelp" class="form-text">- Cedula del representante</div>
                 <div class="d-flex justify-content-center">
-                  <button class="btn btn-primary mt-3" >Continuar</button>
+                  <button class="btn btn-dark mt-3" >Continuar</button>
                 </div>
             </div>
         </form>
@@ -42,15 +37,7 @@
 </body>
 </html>
 
-<style>
-    body {
-        /* background-color: #F5F5F5; */
-        background-image: url("https://investigarte.in/wp-content/uploads/2022/06/boseto.png")
-    }
-</style>
-
-
-
+@endsection
 
   
 

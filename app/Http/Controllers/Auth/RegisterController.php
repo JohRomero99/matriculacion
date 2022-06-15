@@ -102,7 +102,9 @@ class RegisterController extends Controller
         
         if ($codigo->isEmpty()) {
             
-            return redirect()->route('verify');
+            return redirect()->route('register')
+                ->with('warning','Codigo Incorrecto');
+
             
         }else{
 
@@ -110,14 +112,16 @@ class RegisterController extends Controller
 
             if($verificar->estado == "Verificado"){
 
-                return redirect()->route('verify');
+                return redirect()->route('register')
+                    ->with('warning','Tu Codigo ya fue Verificado');
 
             }
             elseif($verificar->estado == "Pendiente"){
 
                 $verificar->estado = "Verificado";
                 $verificar->save();
-                return redirect()->route('register');
+                return redirect()->route('register')
+                    ->with('success','¡Registrate!');
 
             }
 

@@ -40,6 +40,9 @@
                         <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('haga clic aquí para solicitar otro') }}</button>.
                     </form>
                     <div class="contador d-flex justify-content-center" id="ten-countdown"></div>
+                    <form action="{{ route('verificar.destruir', Auth::user()->id ) }}" method = "GET">
+                        @csrf 
+                    </form>
                 </div>
             </div>
         </div>
@@ -76,7 +79,7 @@
     {
         msLeft = endTime - (+new Date);
         if ( msLeft < 1000 ) {
-            element.innerHTML = "Tu enlace ha caducado";
+            element.innerHTML = "Expirado";
         } else {
             time = new Date( msLeft );
             hours = time.getUTCHours();

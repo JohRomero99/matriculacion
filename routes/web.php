@@ -6,6 +6,7 @@ use App\Http\Controllers\User\UserController;
 // use App\Http\Controllers\Aspirante\HomeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\DestroyController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 
@@ -50,6 +51,8 @@ Route::get('/logout', [RegisterController::class, 'logout'])->name('logout');
 
 Route::get('/verify', [RegisterController::class, 'verify'])->name('verify');
 Route::post('/verify/codigo', [RegisterController::class, 'codigo'])->name('verificar.codigo');
+Route::post('/verify/destroy/{id}', [RegisterController::class, 'destroy'])->name('verificar.destruir');
+
 
 Route::get('/pre-registro', [UserController::class, 'registro'])->middleware('verified')->name('user/registro');
 Route::get('/inicio', [UserController::class, 'inicio'])->middleware('verified')->name('user.inicio');
