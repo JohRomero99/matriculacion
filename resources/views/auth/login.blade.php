@@ -92,7 +92,7 @@
       <div class="col-md-10 mx-auto col-lg-5">
         <form class="p-4 p-md-5 border rounded-3 bg-white">
           <div class="form-floating mb-3">
-            <input type="email" class="form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingInput" placeholder="ejemplo@gmail.com">
+            <input type="email" class="id form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingInput" placeholder="ejemplo@gmail.com">
             <label for="floatingInput">Usuario</label>
           </div>
           <div class="form-floating mb-3">
@@ -123,6 +123,9 @@
 <style>
   .id:focus {
       border-bottom: 3px solid #8d4a26 !important;
+  }
+  .bg {
+    background: #E8F0FE !important;
   }
 </style>
 

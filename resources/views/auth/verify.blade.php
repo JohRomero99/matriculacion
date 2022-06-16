@@ -16,13 +16,13 @@
             <form class="p-4 p-md-5 border rounded-3 bg-light"  method="GET">
               @csrf
                 <div class="form-floating mb-3">
-                  <input type="text" class="id form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingInput" placeholder="ejemplo@gmail.com" name="representante">
+                  <input type="text" class="bg id form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingInput" placeholder="ejemplo@gmail.com" name="cedula">
                   <label for="floatingInput">Cédula</label>
                   <div id="emailHelp" class="form-text">- Ej: 096.....2422</div>
                   <div class="d-flex justify-content-center">
                 </div>
                 <div class="form-floating mb-3 mt-3">
-                  <input type="text" class="id form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingPassword" placeholder="ejemplo@gmail.com" name="codigo" >
+                  <input type="text" class="bg id form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingPassword" placeholder="ejemplo@gmail.com" name="codigo" >
                   <label for="floatingPassword">Código</label>
                   <div id="emailHelp" class="form-text">- Ej: XddRF.....cD</div>
                   <div id="emailHelp" class="form-text">- ¡No compartas tu código con nadie!</div>
@@ -39,7 +39,10 @@
 
 <style>
   .id:focus {
-      border-bottom: 3px solid #8d4a26 !important;
+    border-bottom: 3px solid #8d4a26 !important;
+  }
+  .bg {
+    background: #E8F0FE !important;
   }
 </style>
 </body>

@@ -244,24 +244,53 @@
     <div class="row align-items-center g-lg-5 py-2">
       <div class="col-md-10 mx-auto col-lg-5">
 
-      <form class="p-4 p-md-5 border rounded-3 bg-light">
+      <form class="p-4 p-md-5 border rounded-3 bg-light" method="POST" action="{{ route('register') }}">
             <div class="form-floating mb-3">
-                <input type="email" class="bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingInput" placeholder="ejemplo@gmail.com">
+                <input value="{{ $verificar->representante }}" name="cedula" type="text" class="opacity-50 id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingInput" disabled>
+                @error('cedula')
+                    <br>
+                        <small>*{{$message}}</small>
+                    <br>
+                @enderror
+                <label for="floatingInput">Cedula</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input  name="email" type="email" class="id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingInput" placeholder="ejemplo@gmail.com">
+                @error('email')
+                    <br>
+                        <small>*{{$message}}</small>
+                    <br>
+                @enderror
                 <label for="floatingInput">Correo</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="text" class="bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingPassword" placeholder="ejemplo@gmail.com">
+                <input  name="username" type="text" class="id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingPassword" placeholder="ejemplo@gmail.com">
+                @error('username')
+                    <br>
+                        <small>*{{$message}}</small>
+                    <br>
+                @enderror
                 <label for="floatingPassword">Usuario</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="password" class="bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingPassword" placeholder="ejemplo@gmail.com">
+                <input  name="password" type="password" class="id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingPassword" placeholder="ejemplo@gmail.com">
+                @error('password')
+                    <br>
+                        <small>*{{$message}}</small>
+                    <br>
+                @enderror
                 <label for="floatingPassword">Contraseña</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="password" class="bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingPassword" placeholder="ejemplo@gmail.com">
+                <input  name="password-confirm" type="password" class="id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingPassword" placeholder="ejemplo@gmail.com">
+                @error('cedula')
+                    <br>
+                        <small>*{{$message}}</small>
+                    <br>
+                @enderror
                 <label for="floatingPassword">Confirmar contraseña</label>
             </div>
-            <button class="w-100 btn btn-lg btn btn-outline-dark" type="submit">¡Registrate!  <i class="bi bi-box-arrow-in-right"></i></button>
+            <button class="w-100 btn btn-lg btn btn-dark" type="submit">¡Registrate!  <i class="bi bi-box-arrow-in-right"></i></button>
             <hr class="my-4">
             <small class="text-muted d-flex justify-content-center">NSC - Nuestra Señora Del Carmen</small>
         </form>
@@ -280,6 +309,9 @@
 <style>
   .id:focus {
       border-bottom: 3px solid #8d4a26 !important;
+  }
+  .bg {
+    background: #E8F0FE !important;
   }
   .bg {
     background: #E8F0FE !important;

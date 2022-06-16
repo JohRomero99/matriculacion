@@ -98,21 +98,26 @@ class RegisterController extends Controller
 
     public function codigo(Request $request){
 
-        $codigo = Codigo::where('codigo','=',$request->input('codigo'))->pluck('id');
+        $cedula = Codigo::where('representante','=',$request->input('cedula'))->pluck('id');
         
-        if ($codigo->isEmpty()) {
-            
-            return redirect()->route('register')
-                ->with('warning','Codigo Incorrecto');
+        if ($cedula->isEmpty()) {
 
-            
+            return redirect()->route('login')
+                ->with('warning','Cédula desconocido');
+
         }else{
 
-            $verificar = Codigo::find($codigo[0]);
+            $verificar = Codigo::find($cedula[0]);
 
-            if($verificar->estado == "Verificado"){
+            if($verificar->codigo != $request->input('codigo')){
 
-                return redirect()->route('register')
+                return redirect()->route('login')
+                    ->with('warning','Código Desconocido');
+
+            }
+            elseif($verificar->estado == "Verificado"){
+
+                return redirect()->route('login')
                     ->with('warning','Tu Codigo ya fue Verificado');
 
             }
@@ -120,8 +125,7 @@ class RegisterController extends Controller
 
                 $verificar->estado = "Verificado";
                 $verificar->save();
-                return redirect()->route('register')
-                    ->with('success','¡Registrate!');
+                return view('auth.register', compact('verificar'));
 
             }
 
