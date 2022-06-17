@@ -17,15 +17,15 @@ class VerificarRegistro
     public function handle(Request $request, Closure $next)
     {
 
-        // if(is_null($request->cedula)){
+        if(is_null($request->cedula)){
 
-        //     return redirect('verify');
+            return redirect('verify');
 
-        // }else{
+        }else{
 
             return $next($request);
 
-        // }
+        }
     
     }
 }

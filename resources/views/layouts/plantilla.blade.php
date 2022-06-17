@@ -44,23 +44,23 @@
                 <!-- Authentication Links -->
                 @if ( Request::route()->getName() == 'verify' )
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="{{ route('login') }}"  style='border-right: 1px solid #000;' >{{ __('Identificación') }}
-                        <img src="https://i.ibb.co/bPpSXcb/numero-uno.png" width="26" height=26" class="d-inline-block align-top " alt="">
+                    <a class="nav-link text-dark disabled" href="{{ route('login') }}"  style='border-right: 1px solid #000;' >{{ __('Identificación') }}
+                        <img src="https://i.ibb.co/bPpSXcb/numero-uno.png" width="26" height=26" class="d-inline-block align-top" alt="">
                     </a>
                 </li>
                     <a class="nav-link text-dark disabled opacity-25" href="{{ route('register') }}">{{ __('Creación de usuario') }}
-                        <img src="https://i.ibb.co/NNjYNvP/numero-2.png" width="26" height=26" class="d-inline-block align-top " alt="">
+                        <img src="https://i.ibb.co/NNjYNvP/numero-2.png" width="26" height=26" class="d-inline-block align-top" alt="">
                     </a>
                 </li>
                 @endif
-                @if ( Request::route()->getName() == 'register' )
+                @if ( Request::route()->getName() == 'register')
                 <li class="nav-item">
                     <a class="nav-link text-dark disabled opacity-25" href="{{ route('login') }}"  style='border-right: 1px solid #000;' >{{ __('Identificación') }}
-                        <img src="https://i.ibb.co/bPpSXcb/numero-uno.png" width="26" height=26" class="d-inline-block align-top " alt="">
+                        <img src="https://i.ibb.co/bPpSXcb/numero-uno.png" width="26" height=26" class="d-inline-block align-top" alt="">
                     </a>
                 </li>
-                    <a class="nav-link text-dark" href="{{ route('register') }}">{{ __('Creación de usuario') }}
-                        <img src="https://i.ibb.co/NNjYNvP/numero-2.png" width="26" height=26" class="d-inline-block align-top " alt="">
+                    <a class="nav-link text-dark disabled" href="{{ route('register') }}">{{ __('Creación de usuario') }}
+                        <img src="https://i.ibb.co/NNjYNvP/numero-2.png" width="26" height=26" class="d-inline-block align-top" alt="">
                     </a>
                 </li>
                 @endif
@@ -80,8 +80,9 @@
     background-image: url("https://investigarte.in/wp-content/uploads/2022/06/boseto.png")
   }
   
-  a.disabled { 
+  .disabled { 
     pointer-events: none;
+    cursor: default;
   }
 
 </style>

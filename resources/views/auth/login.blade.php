@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.plantilla')
 
 @section('content')
 <!-- <div class="container">
@@ -90,13 +90,34 @@
         <p class="col-lg-10 fs-4">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
       </div>
       <div class="col-md-10 mx-auto col-lg-5">
-        <form class="p-4 p-md-5 border rounded-3 bg-white">
+        <form class="p-4 p-md-5 border rounded-3 bg-white" method="POST" action="{{ route('login') }}">
+            @csrf
           <div class="form-floating mb-3">
-            <input type="email" class="id form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingInput" placeholder="ejemplo@gmail.com">
+            <input type="text" name="username" class="id form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0 @error('username') is-invalid @enderror" id="username" placeholder=" ">
+                <!-- @error('username')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror -->
+                @error('username')
+                    <br>
+                        <small>*{{$message}}</small>
+                    <br>
+                @enderror
             <label for="floatingInput">Usuario</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" class="id form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingPassword" placeholder="ejemplo@gmail.com">
+            <input type="password" name="password" class="id form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0  @error('password') is-invalid @enderror" id="password" placeholder=" ">
+                <!-- @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror -->
+                @error('password')
+                    <br>
+                        <small>*{{$message}}</small>
+                    <br>
+                @enderror
             <label for="floatingPassword">Password</label>
           </div>
           <div class="checkbox mb-3">
@@ -113,8 +134,6 @@
                 <a class="btn btn-link d-flex justify-content-center" href="{{ route('verify') }}">
                     {{ __('Crear Usuario y contraseña') }}
                 </a>
-            <!-- <hr class="my-4">
-          <small class="text-muted d-flex justify-content-center">NSC - Nuestra Señora Del Carmen</small> -->
         </form>
       </div>
     </div>

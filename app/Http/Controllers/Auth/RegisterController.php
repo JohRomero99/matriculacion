@@ -14,6 +14,7 @@ use App\Mail\VerificarCorreoMailable;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\validation\Rules\Password;
 
 class RegisterController extends Controller
 {
@@ -73,7 +74,6 @@ class RegisterController extends Controller
     {
 
         $nuevoUsuario = User::create([
-            'cedula' => $data['cedula'],
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -98,37 +98,52 @@ class RegisterController extends Controller
 
     public function codigo(Request $request){
 
-        $cedula = Codigo::where('representante','=',$request->input('cedula'))->pluck('id');
+        try {
         
-        if ($cedula->isEmpty()) {
+            $request->validate([
 
-            return redirect()->route('login')
-                ->with('warning','Cédula desconocido');
-
-        }else{
-
-            $verificar = Codigo::find($cedula[0]);
-
-            if($verificar->codigo != $request->input('codigo')){
-
+                'cedula' => 'required',
+                'codigo' => 'required',
+    
+            ]);
+    
+            $cedula = Codigo::where('representante','=',$request->input('cedula'))->pluck('id');
+            
+            if ($cedula->isEmpty()) {
+    
                 return redirect()->route('login')
-                    ->with('warning','Código Desconocido');
-
+                    ->with('warning','Cédula desconocido');
+    
+            }else{
+    
+                $verificar = Codigo::find($cedula[0]);
+    
+                if($verificar->codigo != $request->input('codigo')){
+    
+                    return redirect()->route('login')
+                        ->with('warning','Código Desconocido');
+    
+                }
+                elseif($verificar->estado == "Verificado"){
+    
+                    return view('auth.register', compact('verificar'));
+                        
+                }
+                elseif($verificar->estado == "Pendiente"){
+    
+                    $verificar->estado = "Verificado";
+                    $verificar->save();
+                    return view('auth.register', compact('verificar'));
+    
+                }
+    
             }
-            elseif($verificar->estado == "Verificado"){
 
-                return redirect()->route('login')
-                    ->with('warning','Tu Codigo ya fue Verificado');
 
-            }
-            elseif($verificar->estado == "Pendiente"){
+        } catch (\Throwable $th) {
 
-                $verificar->estado = "Verificado";
-                $verificar->save();
-                return view('auth.register', compact('verificar'));
-
-            }
-
+            throw $th;
+    
         }
 
     }

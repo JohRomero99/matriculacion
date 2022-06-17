@@ -245,8 +245,9 @@
       <div class="col-md-10 mx-auto col-lg-5">
 
       <form class="p-4 p-md-5 border rounded-3 bg-light" method="POST" action="{{ route('register') }}">
+        @csrf
             <div class="form-floating mb-3">
-                <input value="{{ $verificar->representante }}" name="cedula" type="text" class="opacity-50 id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingInput" disabled>
+                <input value="{{ $verificar->representante }}" name="cedula" id="cedula" type="text" class="opacity-50 id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0 "  disabled>
                 @error('cedula')
                     <br>
                         <small>*{{$message}}</small>
@@ -255,7 +256,7 @@
                 <label for="floatingInput">Cedula</label>
             </div>
             <div class="form-floating mb-3">
-                <input  name="email" type="email" class="id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingInput" placeholder="ejemplo@gmail.com">
+                <input  name="email" id="email" type="email" class="id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0 @error('email') is-invalid @enderror">
                 @error('email')
                     <br>
                         <small>*{{$message}}</small>
@@ -264,7 +265,7 @@
                 <label for="floatingInput">Correo</label>
             </div>
             <div class="form-floating mb-3">
-                <input  name="username" type="text" class="id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingPassword" placeholder="ejemplo@gmail.com">
+                <input  name="username" id="username" type="text" class="id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0 @error('username') is-invalid @enderror">
                 @error('username')
                     <br>
                         <small>*{{$message}}</small>
@@ -273,7 +274,7 @@
                 <label for="floatingPassword">Usuario</label>
             </div>
             <div class="form-floating mb-3">
-                <input  name="password" type="password" class="id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingPassword" placeholder="ejemplo@gmail.com">
+                <input name="password" id="password" type="password" class="id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0 @error('password') is-invalid @enderror">
                 @error('password')
                     <br>
                         <small>*{{$message}}</small>
@@ -282,12 +283,7 @@
                 <label for="floatingPassword">Contraseña</label>
             </div>
             <div class="form-floating mb-3">
-                <input  name="password-confirm" type="password" class="id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" id="floatingPassword" placeholder="ejemplo@gmail.com">
-                @error('cedula')
-                    <br>
-                        <small>*{{$message}}</small>
-                    <br>
-                @enderror
+                <input type="password" name="password_confirmation" class="id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" >
                 <label for="floatingPassword">Confirmar contraseña</label>
             </div>
             <button class="w-100 btn btn-lg btn btn-dark" type="submit">¡Registrate!  <i class="bi bi-box-arrow-in-right"></i></button>
@@ -299,8 +295,8 @@
       </div>
       <div class="col-lg-7 text-center text-lg-start">
 
-        <h1 class="display-4 fw-bold lh-1 mb-3">¡Registrate!</h1>
-        <p class="col-lg-10 fs-4">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.
+        <h1 class="display-4 fw-bold lh-1 mb-3">Regístrate</h1>
+        <p class="col-lg-10 fs-4">- La contraseña deberá ser mayor a 8 dígitos.</p>
 
       </div>
     </div>
