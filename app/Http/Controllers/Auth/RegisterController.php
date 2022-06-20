@@ -58,8 +58,12 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'username' => ['required'],
-            'password' => ['required', 'string','confirmed'],
+            'username' => ['required','max:255'],
+            'password' => ['required', 'string','confirmed',Password::min(8)
+                ->mixedCase()
+                ->letters()
+                ->numbers()
+                ->symbols()],
         ]);
     }
 
@@ -90,62 +94,62 @@ class RegisterController extends Controller
 
     }
 
-    public function verify(){
+    // public function verify(){
 
-        return view('auth.verify');
+    //     return view('auth.verify');
 
-    }
+    // }
 
-    public function codigo(Request $request){
+    // public function codigo(Request $request){
 
-        try {
+    //     try {
         
-            $request->validate([
+    //         $request->validate([
 
-                'cedula' => 'required',
-                'codigo' => 'required',
+    //             'cedula' => 'required',
+    //             'codigo' => 'required',
     
-            ]);
+    //         ]);
     
-            $cedula = Codigo::where('representante','=',$request->input('cedula'))->pluck('id');
+    //         $cedula = Codigo::where('representante','=',$request->input('cedula'))->pluck('id');
             
-            if ($cedula->isEmpty()) {
+    //         if ($cedula->isEmpty()) {
     
-                return redirect()->route('login')
-                    ->with('warning','Cédula desconocido');
+    //             return redirect()->route('login')
+    //                 ->with('warning','Cédula desconocido');
     
-            }else{
+    //         }else{
     
-                $verificar = Codigo::find($cedula[0]);
+    //             $verificar = Codigo::find($cedula[0]);
     
-                if($verificar->codigo != $request->input('codigo')){
+    //             if($verificar->codigo != $request->input('codigo')){
     
-                    return redirect()->route('login')
-                        ->with('warning','Código Desconocido');
+    //                 return redirect()->route('login')
+    //                     ->with('warning','Código Desconocido');
     
-                }
-                elseif($verificar->estado == "Verificado"){
+    //             }
+    //             elseif($verificar->estado == "Verificado"){
     
-                    return view('auth.register', compact('verificar'));
+    //                 return view('auth.register', compact('verificar'));
                         
-                }
-                elseif($verificar->estado == "Pendiente"){
+    //             }
+    //             elseif($verificar->estado == "Pendiente"){
     
-                    $verificar->estado = "Verificado";
-                    $verificar->save();
-                    return view('auth.register', compact('verificar'));
+    //                 $verificar->estado = "Verificado";
+    //                 $verificar->save();
+    //                 return view('auth.register', compact('verificar'));
     
-                }
+    //             }
     
-            }
+    //         }
 
 
-        } catch (\Throwable $th) {
+    //     } catch (\Throwable $th) {
 
-            throw $th;
+    //         throw $th;
     
-        }
+    //     }
 
-    }
+    // }
 
 }

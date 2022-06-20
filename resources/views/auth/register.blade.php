@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Registro') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" id="formulario" class="formulario">
+                    
                         @csrf
 
                         <div class="row">
@@ -159,7 +159,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                
                         @csrf
 
                         <div class="row mb-3">
@@ -244,10 +244,10 @@
     <div class="row align-items-center g-lg-5 py-2">
       <div class="col-md-10 mx-auto col-lg-5">
 
-      <form class="p-4 p-md-5 border rounded-3 bg-light" method="POST" action="{{ route('register') }}">
+      <form class="p-4 p-md-5 border rounded-3 bg-white" method="POST" action="{{ route('register.post') }}">
         @csrf
             <div class="form-floating mb-3">
-                <input value="{{ $verificar->representante }}" name="cedula" id="cedula" type="text" class="opacity-50 id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0 "  disabled>
+                <input value="{{ $ci->representante }}" name="cedula" id="cedula" type="text" class="opacity-50 id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0"  disabled>
                 @error('cedula')
                     <br>
                         <small>*{{$message}}</small>
@@ -295,8 +295,13 @@
       </div>
       <div class="col-lg-7 text-center text-lg-start">
 
-        <h1 class="display-4 fw-bold lh-1 mb-3">Regístrate</h1>
-        <p class="col-lg-10 fs-4">- La contraseña deberá ser mayor a 8 dígitos.</p>
+        <h1 class="display-4 fw-bold lh-1 mb-3 mt-3">Regístrate</h1>
+        <p class="col-lg-10 fs-4 fw-bold">- La contraseña debe cumplir con los siguiente requsitos:</p>
+        <p class="col-lg-10 fs-4">- Ser mayor a 8 dígitos.</p>
+        <p class="col-lg-10 fs-4">- Contener al menos una letra mayúscula y una minúscula.</p>
+        <p class="col-lg-10 fs-4">- Debe requerir al menos una letra.</p>
+        <p class="col-lg-10 fs-4">- Tener al menos un número.</p>
+        <p class="col-lg-10 fs-4">- Tener al menos un símbolo.</p>
 
       </div>
     </div>
@@ -309,11 +314,7 @@
   .bg {
     background: #E8F0FE !important;
   }
-  .bg {
-    background: #E8F0FE !important;
-  }
 </style>
-
 
 @endsection()
 

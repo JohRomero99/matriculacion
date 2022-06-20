@@ -5,10 +5,10 @@
 <div class="container col-xl-10 col-xxl-8 px-4 py-1">
     <div class="row align-items-center g-lg-5 py-5">
       <div class="col-lg-7 text-center text-lg-start">
-        <h1 class="display-4 fw-bold lh-1 mb-3">Verifica tu Código</h1>
-        <p class="col-lg-10 fs-4 fw-bold"> Realiza los siguientes pasos: </p>
-        <p class="col-lg-10 fs-4">-La cédula no deberá contenter números.</p>
-        <p class="col-lg-10 fs-4">-Digita el código que fue proporcionado por tu docente. Ej: GcFRjGwXXXXB</p>
+        <h1 class="display-4 fw-bold lh-1 mb-3">Introduzca su Código</h1>
+        <p class="col-lg-10 fs-4 fw-bold"> Realice los siguientes pasos: </p>
+        <p class="col-lg-10 fs-4">-La cédula no deberá contenter letras.</p>
+        <p class="col-lg-10 fs-4">-Introduzca el código que fue proporcionado. Ej: GcFRjGwXXXXB.</p>
         
       </div>
       <div class="col-md-10 mx-auto col-lg-5">
@@ -22,13 +22,7 @@
                         <small>*{{$message}}</small>
                     <br>
                   @enderror
-                  <!-- @error('cedula')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror -->
                   <label for="floatingInput">Cédula</label>
-                  <!-- <div id="emailHelp" class="form-text">- Ej: 096.....2422</div> -->
                   <div class="d-flex justify-content-center">
                 </div>
                 <div class="form-floating mb-3 mt-3">
@@ -38,14 +32,7 @@
                         <small>*{{$message}}</small>
                     <br>
                   @enderror
-                  <!-- @error('codigo')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror -->
                   <label for="floatingPassword">Código</label>
-                  <!-- <div id="emailHelp" class="form-text">- Ej: XddRF.....cD</div>
-                  <div id="emailHelp" class="form-text">- ¡No compartas tu código con nadie!</div> -->
                 </div>
                 <button class="w-100 btn btn-lg btn-dark mt-3" type="submit">Verificar   <i class="bi bi-person-check"></i></button>
                 <hr class="my-4">

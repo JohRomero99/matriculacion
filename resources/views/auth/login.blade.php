@@ -94,11 +94,6 @@
             @csrf
           <div class="form-floating mb-3">
             <input type="text" name="username" class="id form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0 @error('username') is-invalid @enderror" id="username" placeholder=" ">
-                <!-- @error('username')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror -->
                 @error('username')
                     <br>
                         <small>*{{$message}}</small>
@@ -108,17 +103,12 @@
           </div>
           <div class="form-floating mb-3">
             <input type="password" name="password" class="id form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0  @error('password') is-invalid @enderror" id="password" placeholder=" ">
-                <!-- @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror -->
                 @error('password')
                     <br>
                         <small>*{{$message}}</small>
                     <br>
                 @enderror
-            <label for="floatingPassword">Password</label>
+            <label for="floatingPassword">Contraseña</label>
           </div>
           <div class="checkbox mb-3">
             <label>
@@ -127,13 +117,13 @@
           </div>
           <button class="w-100 btn btn-lg btn-dark" type="submit">Iniciar Sesión  <i class="bi bi-box-arrow-in-right"></i></button>
             @if (Route::has('password.request'))
-                <a class="btn btn-link d-flex justify-content-center" href="{{ route('password.request') }}">
-                    {{ __('¿Olvidaste tu contraseña?') }}
-                </a>
+            <a class="btn btn-link d-flex justify-content-center" href="{{ route('password.request') }}">
+                {{ __('¿Olvidaste tu contraseña?') }}
+            </a>
             @endif
-                <a class="btn btn-link d-flex justify-content-center" href="{{ route('verify') }}">
-                    {{ __('Crear Usuario y contraseña') }}
-                </a>
+            <a class="btn btn-link d-flex justify-content-center" href="{{ route('verify') }}">
+                {{ __('Crear Usuario y contraseña') }}
+            </a>
         </form>
       </div>
     </div>
