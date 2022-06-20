@@ -46,15 +46,17 @@ class VerificarController extends Controller
                 }
                 elseif($verificar->estado == "Verificado"){
     
-                    return view('auth.register', compact('verificar'));
+                    return redirect()->route('login')
+                        ->with('warning','Ya tienes un registro realizado');
                         
                 }
                 elseif($verificar->estado == "Pendiente"){
     
-                    $verificar->estado = "Verificado";
-                    $verificar->save();
-                    return redirect()->route('register.verificar',$verificar->id);
-
+                    // $verificar->estado = "Verificado";
+                    // $verificar->save();
+                    $ci = $verificar->id;
+                    $ci = encrypt($ci);
+                    return redirect()->route('register.verificar',$ci);
     
                 }
     

@@ -22,10 +22,10 @@
                     <div class="text-center"><strong>1.- Abre el mensaje que te hemos enviado a:</strong></div>
                     <p class="text-center m-2">{{ Auth::user()->email }}</p>
                     <div class="text-center">¿Esta dirección de correo es incorrecta?. Vuelva a registrarte con un email diferente 
-                        <form class="d-inline" action="{{ route('logout') }}" method="post">
+                        <!-- <form class="d-inline" action="{{ route('logout') }}" method="post">
                             @csrf
                             <button style="border:none;background:#fff;color:blue;text-decoration:underline" >cerrar sesion aquí</button>
-                        </form>
+                        </form> -->
                     </div>
                 
                     <div class="container mt-3">

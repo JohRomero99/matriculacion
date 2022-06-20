@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Verificar\VerificarController;
 use App\Http\Controllers\Auth\DestroyController;
+use App\Http\Controllers\Datos\DatosController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 
@@ -48,13 +49,14 @@ Route::post('/email/verification-notification', function (Request $request) {
 // Route::get('/home', [HomeController::class, 'index'])->middleware('verified')->name('home');
 
 
-Route::get('/logout', [RegisterController::class, 'logout'])->name('logout');
+// Route::get('/logout', [RegisterController::class, 'logout'])->name('logout');
 
 Route::get('/verify', [VerificarController::class, 'verify'])->name('verify');
 Route::post('/verify/codigo', [VerificarController::class, 'codigo'])->name('verificar.codigo');
 Route::post('/verify/destroy/{id}', [RegisterController::class, 'destroy'])->name('verificar.destruir');
 
 
-Route::get('/pre-registro', [UserController::class, 'registro'])->middleware('verified')->name('user/registro');
-Route::get('/inicio', [UserController::class, 'inicio'])->middleware('verified')->name('user.inicio');
+Route::get('/pre-registro', [DatosController::class, 'vista'])->middleware('verified')->name('pre-registro.vista');
+Route::post('/pre-registro', [DatosController::class, 'datos'])->name('pre-registro.datos');
+// Route::get('/inicio', [UserController::class, 'inicio'])->middleware('verified')->name('user.inicio');
 

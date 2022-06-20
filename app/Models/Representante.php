@@ -18,16 +18,7 @@ class Representante extends Model
         'cedula',
         'nombre',
         'email',
-        // 'apellido',
-        // 'telefono',
-        // 'direccion',
-        // 'users_id',
     ];
 
-    
-    //Relación uno a uno
-    // public function codigo(){
-    //     return this->hasone('\App\Models\Codigo','representante');
-    // }
     
 }
