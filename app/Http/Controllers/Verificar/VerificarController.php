@@ -39,7 +39,7 @@ class VerificarController extends Controller
                 $verificar = Codigo::find($cedula[0]);
     
                 if($verificar->codigo != $request->input('codigo')){
-    
+ 
                     return redirect()->route('login')
                         ->with('warning','Código Desconocido');
     
@@ -47,13 +47,11 @@ class VerificarController extends Controller
                 elseif($verificar->estado == "Verificado"){
     
                     return redirect()->route('login')
-                        ->with('warning','Ya tienes un registro realizado');
+                        ->with('warning','Ya tienes un usuario y contraseña creados');
                         
                 }
                 elseif($verificar->estado == "Pendiente"){
     
-                    // $verificar->estado = "Verificado";
-                    // $verificar->save();
                     $ci = $verificar->id;
                     $ci = encrypt($ci);
                     return redirect()->route('register.verificar',$ci);

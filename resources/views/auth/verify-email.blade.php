@@ -5,11 +5,11 @@
     <div class="row justify-content-center">
         <div class="col mt-5">
             <div class="d-flex justify-content-center align-items-center">
-                <img src="https://i.ibb.co/jhw1MgB/proteger.png">
+                <img src="https://i.ibb.co/TczhS4z/proteger.png" class="" width="400" height="400"  >
             </div>
         </div>
         <div class="col">
-            <div class="card mt-4">
+            <div class="card mt-5">
                 <div class="card-header display-6 text-center"><strong>{{ __('Verifique su dirección de correo electrónico') }}</strong></div>
 
                 <div class="card-body">
@@ -21,13 +21,6 @@
 
                     <div class="text-center"><strong>1.- Abre el mensaje que te hemos enviado a:</strong></div>
                     <p class="text-center m-2">{{ Auth::user()->email }}</p>
-                    <div class="text-center">¿Esta dirección de correo es incorrecta?. Vuelva a registrarte con un email diferente 
-                        <!-- <form class="d-inline" action="{{ route('logout') }}" method="post">
-                            @csrf
-                            <button style="border:none;background:#fff;color:blue;text-decoration:underline" >cerrar sesion aquí</button>
-                        </form> -->
-                    </div>
-                
                     <div class="container mt-3">
                         <div class="text-center"><strong>2.- Pulsa en el botón "Confirmar email"</strong></div>
                         <div class="text-center">Así confirmaremos que tu email</div>

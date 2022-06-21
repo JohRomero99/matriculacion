@@ -17,7 +17,7 @@ class VerificarRegistro
     public function handle(Request $request, Closure $next)
     {
 
-        if(is_null($request->id)){
+        if(is_null($request->all())){
 
             return redirect('verify');
 

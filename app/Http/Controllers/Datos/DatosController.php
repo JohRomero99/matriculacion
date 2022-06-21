@@ -23,12 +23,11 @@ class DatosController extends Controller
             'telefono' => 'required',
             'fecha_nacimiento' => 'required',
             'direccion' => 'required',
-
         ]);
 
         $data = Dato::create($request->all());
 
-        return "bien :)";
+        return redirect()->route('home');
 
     }
 }

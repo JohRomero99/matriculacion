@@ -247,7 +247,7 @@
       <form class="p-4 p-md-5 border rounded-3 bg-white" method="POST" action="{{ route('register.post') }}">
         @csrf
             <div class="form-floating mb-3">
-                <input value="{{ $ci->representante }}" name="cedula" id="cedula" type="text" class="opacity-50 id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0"  disabled>
+                <input value="{{ $ci->representante }}" name="cedula" id="cedula" type="text" class="opacity-50 id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" readonly>
                 @error('cedula')
                     <br>
                         <small>*{{$message}}</small>
