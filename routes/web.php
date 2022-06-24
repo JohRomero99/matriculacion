@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
-// use App\Http\Controllers\Aspirante\AspiranteController;
-// use App\Http\Controllers\Aspirante\HomeController;
+use App\Http\Controllers\auth\ActualizarController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Verificar\VerificarController;
@@ -42,6 +41,11 @@ Route::post('/verify/destroy/{id}', [RegisterController::class, 'destroy'])->nam
 
 
 Route::get('/pre-registro', [DatosController::class, 'vista'])->middleware('verified')->name('pre-registro.vista');
-Route::post('/pre-registro', [DatosController::class, 'datos'])->name('pre-registro.datos');
-Route::get('/inicio', [UserController::class, 'inicio'])->middleware('verified')->name('user.inicio');
+Route::post('/pre-registro', [DatosController::class, 'datos'])->name('pre-registro.datos'); 
+
+Route::get('/update/perfil/', [ActualizarController::class, 'vista'])->middleware('verified')->name('actualizar.vista');
+Route::post('/update/perfil', [ActualizarController::class, 'datos'])->middleware('verified')->name('actualizar.datos');
+
+Route::get('/paymentez', [UserController::class, 'paymentez'])->middleware('verified')->name('paymentez');
+Route::get('/inicio', [UserController::class, 'inicio'])->middleware('verified')->name('inicio');
 

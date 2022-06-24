@@ -17,6 +17,10 @@ class CreateRepresentantesTable extends Migration
             $table->id();
             $table->string('cedula');
             $table->string('nombre');
+            $table->string('apellido');
+            $table->string('telefono');
+            $table->string('fecha_nacimiento');
+            $table->string('direccion');
             $table->timestamps();
         });
     }

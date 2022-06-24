@@ -18,4 +18,10 @@ class UserController extends Controller
         return view('user.pre-registro');
 
     }
+
+    public function paymentez(){
+
+        return view('user.paymentez');
+
+    }
 }

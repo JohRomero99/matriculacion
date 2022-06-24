@@ -74,14 +74,14 @@
     </div>
 </nav>
 
-<div>
+<div class="" >
     @include('flash-message')
     @yield('content')
 </div>
-    
+
 <style>
   body{
-    /* background-color: #F5F5F5; */
+    /* background-color: #e8eaf6; */
     background-image: url("https://investigarte.in/wp-content/uploads/2022/06/boseto.png")
   }
   
@@ -93,3 +93,5 @@
 </style>
 
 </body>
+
+</div>

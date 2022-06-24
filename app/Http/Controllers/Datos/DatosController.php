@@ -14,11 +14,16 @@ class DatosController extends Controller
 
     }
 
+    public function update(){
+
+        return view('user.actualizar');
+
+    }
+
     public function datos(Request $request){
 
         $request->validate([
-            'cedula' => 'required',
-            'nombre' => 'required',
+            'nombre' => 'required|max:255|string',
             'apellido' => 'required',
             'telefono' => 'required',
             'fecha_nacimiento' => 'required',

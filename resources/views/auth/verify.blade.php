@@ -12,7 +12,7 @@
         
       </div>
       <div class="col-md-10 mx-auto col-lg-5">
-        <form action="{{route('verificar.codigo')}}" class="p-4 p-md-5 border rounded-3 bg-light" method="POST">
+        <form action="{{route('verificar.codigo')}}" class="p-4 p-md-5 border rounded-3 bg-white" method="POST">
           @csrf
             <div class="mb-3">
                 <div class="form-floating mb-3">
