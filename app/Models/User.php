@@ -57,13 +57,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function adminlte_profile_url()
     {
-        return 'profile/username';
+        return 'actualizar/perfil';
     }
-
-//    public  function sendPasswordResetNotification($token)
-//     {
-//         $this->notify(new UserResetPassword($token));
-//     }
-
 
 }

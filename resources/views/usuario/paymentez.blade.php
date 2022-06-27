@@ -1,20 +1,11 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
 
-<div class="container mt-5">
-      <!-- <div class="py-5 text-center">
-        <h2>Checkout form</h2> -->
-        <!-- <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p> -->
-        <!-- <select class="mx-auto w-75 form-select bg-white sahdow-none" id="country" required="">
-            <option value="">Choose...</option>
-            <option>United States</option>
-        </select>
-        <button class="btn btn-dark mt-2 w-25">Buscar</button>
-      </div> -->
+<div class="container">
 
       <div class="row">
-        <div class="col-md-4 order-md-2 mb-4">
+        <div class="col-md-4 order-md-2 mb-4 mt-5">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-muted mx-auto">Carrito  <i class="bi bi-bag-check"></i></span>
             <span class="badge badge-secondary badge-pill">3</span>
@@ -44,7 +35,7 @@
             <div class="input-group">
               <!-- <input type="text" class="form-control border-0 shadow-none border-bottom border-dark" placeholder="Promo code"> -->
               <div class="input-group">
-                <button type="submit" class="btn btn-outline-dark w-100 mx-auto">Continuar <i class="bi bi-credit-card"></i></button>
+                <button type="submit" class="btn btn-dark w-100 mx-auto bg-light">Continuar <i class="bi bi-credit-card"></i></button>
               </div>
                 <div class="form-check mx-auto mt-1">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -55,163 +46,70 @@
             </div>
           </form>
         </div>
-        <div class="col-md-8 order-md-1">
+        <div class="col-md-8 order-md-1 mt-5">
 
-          <table class="table table-striped table-hover border">
-            <thead>
-              <tr>
-                <th scope="col"></th>
-                <th scope="col">Pension</th>
-                <th scope="col">Fecha Vencimiento</th>
-                <th scope="col">Estado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
-                <td>Enero</td>
-                <td>30/01/2022</td>
-                <td>Por Pagar</td>
-              </tr>
-              <tr>
-                <th scope="row"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
-                <td>Enero</td>
-                <td>30/01/2022</td>
-                <td>Por Pagar</td>
-              </tr>
-              <tr>
-                <th scope="row"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
-                <td>Enero</td>
-                <td>30/01/2022</td>
-                <td>Por Pagar</td>
-              </tr>
-              <tr>
-                <th scope="row"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
-                <td>Enero</td>
-                <td>30/01/2022</td>
-                <td>Por Pagar</td>
-              </tr>
-              <tr>
-                <th scope="row"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></th>
-                <td>Enero</td>
-                <td>30/01/2022</td>
-                <td>Por Pagar</td>
-              </tr>
-            </tbody>
-          </table>
+        <table class="table bg-white border">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Mes</th>
+              <th scope="col">F. Vencimiento</th>
+              <th scope="col">Valor</th>
+              <th scope="col">Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <th scope="row">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                </div>
+              </th>
+              <td>Enero</td>
+              <td>25/03/2022</td>
+              <td>$109</td>
+              <td>Pendiente</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                </div>
+              </th>
+              <td>Febrero</td>
+              <td>30/04/2022</td>
+              <td>$109</td>
+              <td>Pendiente</td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                </div>
+              </th>
+              <td>Marzo</td>
+              <td>31/05/2022</td>
+              <td>$109</td>
+              <td>Pendiente</td>
+            </tr>
+
+          </tbody>
+          <tfoot>
+            
+            <tr>
+              <th scope="row">Total</th>
+              <td></td>
+              <td></td>
+              <td>$327</td>
+              <td></td>
+            </tr>
+
+          </tfoot>
+        </table>
 
 
-
-            <!-- <div class="row">
-              <div class="col-md-5 mb-3">
-                <label for="country">Country</label>
-                <select class="custom-select d-block w-100" id="country" required="">
-                  <option value="">Choose...</option>
-                  <option>United States</option>
-                </select>
-                <div class="invalid-feedback">
-                  Please select a valid country.
-                </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <label for="state">State</label>
-                <select class="custom-select d-block w-100" id="state" required="">
-                  <option value="">Choose...</option>
-                  <option>California</option>
-                </select>
-                <div class="invalid-feedback">
-                  Please provide a valid state.
-                </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="zip">Zip</label>
-                <input type="text" class="form-control id bg border-0 shadow-none border-bottom border-dark" id="zip" placeholder="" required="">
-                <div class="invalid-feedback">
-                  Zip code required.
-                </div>
-              </div>
-            </div> -->
-            <!-- <hr class="mb-4">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input id bg border-0 shadow-none border-bottom border-dark" id="same-address">
-              <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
-            </div>
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input id bg border-0 shadow-none border-bottom border-dark" id="save-info">
-              <label class="custom-control-label" for="save-info">Save this information for next time</label>
-            </div> -->
-
-            <!-- <hr class="mb-4"> -->
-
-            <!-- <div class="list-group">
-              <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">Visa</h5>
-                  <small>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        Default radio
-                      </label>
-                    </div>
-                  </small>
-                </div>
-                <p class="mb-1">Some placeholder content in a paragraph.</p>
-                <small>hola</small>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">Masterd Card</h5>
-                  <small class="text-muted">
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                    <label class="form-check-label" for="flexRadioDefault1">
-                      Default radio
-                    </label>
-                  </div>
-                  </small>
-                </div>
-                <p class="mb-1">Some placeholder content in a paragraph.</p>
-                <small class="text-muted">And some muted small print.</small>
-              </a>
-            </div> -->
-
-            <!-- <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="cc-name">Name on card</label>
-                <input type="text" class="form-control id bg border-0 shadow-none border-bottom border-dark" id="cc-name" placeholder="" required="">
-                <small class="text-muted">Full name as displayed on card</small>
-                <div class="invalid-feedback">
-                  Name on card is required
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="cc-number">Credit card number</label>
-                <input type="text" class="form-control id bg border-0 shadow-none border-bottom border-dark" id="cc-number" placeholder="" required="">
-                <div class="invalid-feedback">
-                  Credit card number is required
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-3 mb-3">
-                <label for="cc-expiration">Expiration</label>
-                <input type="text" class="form-control id bg border-0 shadow-none border-bottom border-dark" id="cc-expiration" placeholder="" required="">
-                <div class="invalid-feedback">
-                  Expiration date required
-                </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="cc-expiration">CVV</label>
-                <input type="text" class="form-control id bg border-0 shadow-none border-bottom border-dark" id="cc-cvv" placeholder="" required="">
-                <div class="invalid-feedback">
-                  Security code required
-                </div>
-              </div>
-            </div> -->
-            <!-- <hr class="mb-4"> -->
-            <!-- <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button> -->
-          </form>
+        
         </div>
       </div>
     </div>
