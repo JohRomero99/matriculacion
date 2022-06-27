@@ -58,7 +58,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'username' => ['required','max:255'],
+            'name' => ['required','max:255'],
             'password' => ['required', 'string','confirmed',Password::min(8)
                 ->mixedCase()
                 ->letters()
@@ -77,7 +77,7 @@ class RegisterController extends Controller
     {
 
         $nuevoUsuario = User::create([
-            'username' => $data['username'],
+            'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);     
@@ -92,63 +92,5 @@ class RegisterController extends Controller
         return redirect()->route('register');
 
     }
-
-    // public function verify(){
-
-    //     return view('auth.verify');
-
-    // }
-
-    // public function codigo(Request $request){
-
-    //     try {
-        
-    //         $request->validate([
-
-    //             'cedula' => 'required',
-    //             'codigo' => 'required',
-    
-    //         ]);
-    
-    //         $cedula = Codigo::where('representante','=',$request->input('cedula'))->pluck('id');
-            
-    //         if ($cedula->isEmpty()) {
-    
-    //             return redirect()->route('login')
-    //                 ->with('warning','Cédula desconocido');
-    
-    //         }else{
-    
-    //             $verificar = Codigo::find($cedula[0]);
-    
-    //             if($verificar->codigo != $request->input('codigo')){
-    
-    //                 return redirect()->route('login')
-    //                     ->with('warning','Código Desconocido');
-    
-    //             }
-    //             elseif($verificar->estado == "Verificado"){
-    
-    //                 return view('auth.register', compact('verificar'));
-                        
-    //             }
-    //             elseif($verificar->estado == "Pendiente"){
-    
-    //                 $verificar->estado = "Verificado";
-    //                 $verificar->save();
-    //                 return view('auth.register', compact('verificar'));
-    
-    //             }
-    
-    //         }
-
-
-    //     } catch (\Throwable $th) {
-
-    //         throw $th;
-    
-    //     }
-
-    // }
 
 }

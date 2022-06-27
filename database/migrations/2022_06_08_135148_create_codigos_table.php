@@ -19,16 +19,6 @@ class CreateCodigosTable extends Migration
             $table->string('representante');
             $table->string('codigo');
             $table->string('estado');
-
-            // $table->foreign('estudiante')
-            //     ->references('id')
-            //     ->on('estudiantes')
-            //     ->onDelete('cascade');
-            // $table->foreign('representante')
-            //     ->references('id')
-            //     ->on('representantes')
-            //     ->onDelete('cascade');
-
             $table->timestamps();
         });
     }

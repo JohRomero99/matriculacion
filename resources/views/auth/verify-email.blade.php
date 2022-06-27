@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col mt-5">
             <div class="d-flex justify-content-center align-items-center">
-                <img src="https://i.ibb.co/TczhS4z/proteger.png" class="" width="400" height="400"  >
+                <img src="https://i.ibb.co/TczhS4z/proteger.png" class="" width="400" height="400" >
             </div>
         </div>
         <div class="col">
@@ -19,7 +19,7 @@
                         </div>
                     @endif
 
-                    <div class="text-center"><strong>1.- Abre el mensaje que te hemos enviado a:</strong></div>
+                    <div class="text-center"><strong>1.- Abre el mensaje que te hemos enviado a tu bandeja de entrada:</strong></div>
                     <p class="text-center m-2">{{ Auth::user()->email }}</p>
                     <div class="container mt-3">
                         <div class="text-center"><strong>2.- Pulsa en el botón "Confirmar email"</strong></div>
@@ -33,9 +33,6 @@
                         <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('haga clic aquí para solicitar otro') }}</button>.
                     </form>
                     <div class="contador d-flex justify-content-center" id="ten-countdown"></div>
-                    <form action="{{ route('verificar.destruir', Auth::user()->id ) }}" method = "GET">
-                        @csrf 
-                    </form>
                 </div>
             </div>
         </div>
@@ -79,6 +76,7 @@
             mins = time.getUTCMinutes();
             element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
             setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
+            
         }
     }
 

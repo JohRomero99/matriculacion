@@ -54,7 +54,9 @@ class VerificarController extends Controller
     
                     $ci = $verificar->id;
                     $ci = encrypt($ci);
-                    return redirect()->route('register.verificar',$ci);
+                    // return redirect()->route('register.verificar',$ci);
+
+                    return redirect()->route('pre-registro.vista', $ci);
     
                 }
     
@@ -63,7 +65,8 @@ class VerificarController extends Controller
 
         } catch (\Throwable $th) {
 
-            throw $th;
+            return redirect()->route('login')
+            ->with('warning','Ocurrio un error, Vuelverlo a intentar');
     
         }
 

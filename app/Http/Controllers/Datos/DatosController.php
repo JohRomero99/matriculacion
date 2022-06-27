@@ -8,31 +8,54 @@ use App\Models\Dato;
 
 class DatosController extends Controller
 {
-    public function vista(){
+    public function vista($ci){
 
-        return view('user.pre-registro');
+        try {
+            
+            $ci = decrypt($ci);
+
+            return view('usuario.pre-registro',compact('ci'));
+
+        } catch (\Throwable $th) {
+            
+            return redirect()->route('login')
+            ->with('warning','Ocurrio un error, Vuelverlo a intentar');
+
+        }
 
     }
 
     public function update(){
 
-        return view('user.actualizar');
+        return view('usuario.actualizar');
 
     }
 
-    public function datos(Request $request){
+    public function datos(Request $request, $ci){
 
-        $request->validate([
-            'nombre' => 'required|max:255|string',
-            'apellido' => 'required',
-            'telefono' => 'required',
-            'fecha_nacimiento' => 'required',
-            'direccion' => 'required',
-        ]);
+        try {
+            
+            $request->validate([
+                'nombre' => 'required|max:255|string',
+                'apellido' => 'required',
+                'telefono' => 'required',
+                'fecha_nacimiento' => 'required',
+                'direccion' => 'required',
+            ]);
+    
+            $verificar = encrypt($ci);
+    
+            $data = Dato::create($request->all());
+    
+            return redirect()->route('register.verificar', $verificar );
 
-        $data = Dato::create($request->all());
 
-        return redirect()->route('home');
+        } catch (\Throwable $th) {
+            
+            return redirect()->route('login')
+                ->with('warning','Ocurrio un error, Vuelverlo a intentar');
+
+        }   
 
     }
 }

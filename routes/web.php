@@ -1,12 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Usuario\UsuarioController;
 use App\Http\Controllers\auth\ActualizarController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Verificar\VerificarController;
-use App\Http\Controllers\Auth\DestroyController;
 use App\Http\Controllers\Datos\DatosController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -24,7 +23,7 @@ Route::get('/email/verify', function () {
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
  
-    return redirect('/pre-registro');
+    return redirect('/inicio');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::post('/email/verification-notification', function (Request $request) {
@@ -35,17 +34,15 @@ Route::post('/email/verification-notification', function (Request $request) {
 
 // Route::get('/home', [HomeController::class, 'index'])->middleware('verified')->name('home');
 
-Route::get('/verify', [VerificarController::class, 'verify'])->name('verify');
-Route::post('/verify/codigo', [VerificarController::class, 'codigo'])->name('verificar.codigo');
-Route::post('/verify/destroy/{id}', [RegisterController::class, 'destroy'])->name('verificar.destruir');
+Route::get('/verificar', [VerificarController::class, 'verify'])->name('verificar');
+Route::post('/verificar/codigo', [VerificarController::class, 'codigo'])->name('verificar.codigo');
 
+Route::get('/pre-registro/{id}', [DatosController::class, 'vista'])->name('pre-registro.vista');
+Route::post('/pre-registro/{id}', [DatosController::class, 'datos'])->name('pre-registro.datos'); 
 
-Route::get('/pre-registro', [DatosController::class, 'vista'])->middleware('verified')->name('pre-registro.vista');
-Route::post('/pre-registro', [DatosController::class, 'datos'])->name('pre-registro.datos'); 
+Route::get('/actualizar/perfil/', [ActualizarController::class, 'vista'])->middleware('verified')->name('actualizar.vista');
+Route::post('/acctualizar/perfil', [ActualizarController::class, 'datos'])->middleware('verified')->name('actualizar.datos');
 
-Route::get('/update/perfil/', [ActualizarController::class, 'vista'])->middleware('verified')->name('actualizar.vista');
-Route::post('/update/perfil', [ActualizarController::class, 'datos'])->middleware('verified')->name('actualizar.datos');
-
-Route::get('/paymentez', [UserController::class, 'paymentez'])->middleware('verified')->name('paymentez');
-Route::get('/inicio', [UserController::class, 'inicio'])->middleware('verified')->name('inicio');
+Route::get('/paymentez', [UsuarioController::class, 'paymentez'])->middleware('verified')->name('paymentez');
+Route::get('/inicio', [UsuarioController::class, 'inicio'])->middleware('verified')->name('inicio');
 

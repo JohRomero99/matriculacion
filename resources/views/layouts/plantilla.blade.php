@@ -47,7 +47,7 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
-                @if ( Request::route()->getName() == 'verify' )
+                @if ( Request::route()->getName() == 'verificar' )
                 <li class="nav-item">
                     <a class="nav-link text-dark disabled" href="#"  style='border-right: 1px solid #000;' >{{ __('Identificación') }}
                         <img src="https://i.ibb.co/bPpSXcb/numero-uno.png" width="26" height=26" class="d-inline-block align-top" alt="">

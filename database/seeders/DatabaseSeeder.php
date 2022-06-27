@@ -15,6 +15,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        Codigo::factory(1300)->create();
+        Codigo::factory(10)->create();
     }
 }

@@ -20,13 +20,6 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array<int, string>
      */
-    // protected $fillable = [
-    //     'cedula',
-    //     'username',
-    //     'email',
-    //     'password',
-    //     'email_verified_at',
-    // ];
 
     protected $guarded = [
         'cedula',
@@ -51,6 +44,21 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function adminlte_image()
+    {
+        return 'https://picsum.photos/300/300';
+    }
+
+    public function adminlte_desc()
+    {
+        return 'Usuario';
+    }
+
+    public function adminlte_profile_url()
+    {
+        return 'profile/username';
+    }
 
 //    public  function sendPasswordResetNotification($token)
 //     {

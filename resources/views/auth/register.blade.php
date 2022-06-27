@@ -265,8 +265,8 @@
                 <label for="floatingInput">Correo</label>
             </div>
             <div class="form-floating mb-3">
-                <input  name="username" id="username" type="text" class="id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0 @error('username') is-invalid @enderror">
-                @error('username')
+                <input  name="name" id="username" type="text" class="id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0 @error('name') is-invalid @enderror">
+                @error('name')
                     <br>
                         <small>*{{$message}}</small>
                     <br>

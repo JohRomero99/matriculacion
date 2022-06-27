@@ -93,8 +93,8 @@
         <form class="p-4 p-md-5 border rounded-3 bg-white" method="POST" action="{{ route('login') }}">
             @csrf
           <div class="form-floating mb-3">
-            <input type="text" name="username" class="id form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0 @error('username') is-invalid @enderror" id="username" placeholder=" ">
-                @error('username')
+            <input type="text" name="name" class="id form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0 @error('name') is-invalid @enderror" id="name" placeholder=" ">
+                @error('name')
                     <br>
                         <small>*{{$message}}</small>
                     <br>
@@ -121,7 +121,7 @@
                 {{ __('¿Olvidaste tu contraseña?') }}
             </a>
             @endif
-            <a class="btn btn-link d-flex justify-content-center" href="{{ route('verify') }}">
+            <a class="btn btn-link d-flex justify-content-center" href="{{ route('verificar') }}">
                 {{ __('Crear Usuario y contraseña') }}
             </a>
         </form>

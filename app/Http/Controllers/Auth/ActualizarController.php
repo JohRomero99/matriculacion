@@ -9,7 +9,7 @@ class ActualizarController extends Controller
 {
     public function vista(){
 
-        return view('user.actualizar');
+        return view('usuario.actualizar');
 
     }
 

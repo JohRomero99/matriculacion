@@ -15,7 +15,6 @@ class CreateDatosTable extends Migration
     {
         Schema::create('datos', function (Blueprint $table) {
             $table->id();
-            $table->string('cedula');
             $table->string('nombre');
             $table->string('apellido');
             $table->date('fecha_nacimiento');
