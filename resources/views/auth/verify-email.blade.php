@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col mt-5">
             <div class="d-flex justify-content-center align-items-center">
@@ -28,7 +28,7 @@
                 
                     <!-- {{ __('Antes de continuar, verifique su correo electrónico para obtener un enlace de verificación.') }}
                     {{ __('Si no recibiste el correo electrónico') }}, -->
-                    <form class="d-inline d-flex justify-content-center" method="POST" action="{{ route('verification.send') }}">
+                    <!-- <form class="d-inline d-flex justify-content-center" method="POST" action="{{ route('verification.send') }}">
                         @csrf
                         <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('haga clic aquí para solicitar otro') }}</button>.
                     </form>
@@ -88,7 +88,31 @@
 
 countdown( "ten-countdown", 10, 0 );
 
-</script>
+</script>  -->
 
+<div class="container w-50">
+    <div class="card text-center mt-5">
+    <div class="card-header bg-secondary text-white">
+        <h4 class="mt-1 mb-0 " >Validación de Correo Electrónico</h4> 
+    </div>
+    <div class="card-body">
+        <!-- <h5 class="card-title">Hola, John</h5> -->
+        <div class="text-center"><strong>1.- Abre el mensaje que te hemos enviado a tu bandeja de entrada:</strong></div>
+        <p class="text-center m-2">{{ Auth::user()->email }}</p>
+        <div class="container mt-3">
+            <div class="text-center"><strong>2.- Pulsa en el botón "Confirmar email"</strong></div>
+            <div class="text-center">Así confirmaremos que tu email</div>
+        </div>
+        <div class="text-center mt-1"><strong>3.- Si tu correo ha llegado el correo de verificación puedes solicitar otro;</strong></div>
+        <form class="d-inline d-flex justify-content-center" method="POST" action="{{ route('verification.send') }}">
+            @csrf
+            <button type="submit" class="btn btn-outline-secondary mt-1">{{ __('haga clic aquí para solicitar otro') }}</button>.
+        </form>
+    </div>
+    <div class="card-footer text-muted">
+        El enlace tiene validez hasta 1 día
+    </div>
+    </div>
+</div>
 
 @endsection

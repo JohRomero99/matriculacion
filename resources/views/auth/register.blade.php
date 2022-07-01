@@ -244,7 +244,7 @@
     <div class="row align-items-center g-lg-5 py-2">
       <div class="col-md-10 mx-auto col-lg-5">
 
-      <form class="p-4 p-md-5 border rounded-3 bg-white" method="POST" action="{{ route('register.post') }}">
+      <form class="p-4 p-md-5 border rounded-3 bg-white" method="POST" action="{{ route('register.post', $ci->id) }}">
         @csrf
             <div class="form-floating mb-3">
                 <input value="{{ $ci->representante }}" name="cedula" id="cedula" type="text" class="opacity-50 id bg form-control border-0 shadow-none border-bottom border-dark shadow-none rounded-0" readonly>

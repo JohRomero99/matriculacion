@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Models\Dato;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -57,7 +58,14 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function adminlte_profile_url()
     {
-        return 'actualizar/perfil';
+        return '/actualizar/perfil/';
+
+    }
+
+    public function datos(){
+
+        return $this->belongsTo('App\Models\Dato');
+
     }
 
 }

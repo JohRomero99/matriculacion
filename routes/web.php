@@ -40,6 +40,7 @@ Route::post('/verificar/codigo', [VerificarController::class, 'codigo'])->name('
 Route::get('/pre-registro/{id}', [DatosController::class, 'vista'])->name('pre-registro.vista');
 Route::post('/pre-registro/{id}', [DatosController::class, 'datos'])->name('pre-registro.datos'); 
 
+Route::get('/perfil', [ActualizarController::class, 'perfil'])->middleware('verified')->name('perfil');
 Route::get('/actualizar/perfil/', [ActualizarController::class, 'vista'])->middleware('verified')->name('actualizar.vista');
 Route::post('/acctualizar/perfil', [ActualizarController::class, 'datos'])->middleware('verified')->name('actualizar.datos');
 

@@ -10,9 +10,12 @@
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <!-- <img src="https://i.ibb.co/N2rHfqv/matricula-1.png" width="90" height="80" alt="">             -->
         </div>
-            <div class="text-center">
-                <button class="btn btn-secondary w-75 mb-4" >Acceder </button>
-            </div>
+        <div class="text-center">
+            <button class="btn btn-secondary w-75 mb-4" >Acceder </button>
+        </div>
+        <div class="card-footer text-muted text-center">
+            Saldo Pendiente: $0
+        </div>
     </div>
 
     <div class="card bg-light mb-3 m-3 mt-5" style="max-width: 20rem;">
@@ -24,7 +27,12 @@
                 <button class="btn btn-secondary w-75" >Acceder</button>
             </div>
         </div>
+        <div class="card-footer text-muted text-center">
+            Saldo Pendiente: $200
+        </div>
     </div>
 </div>
+
+
 
 @endsection

@@ -37,10 +37,10 @@ class DatosController extends Controller
             
             $request->validate([
                 'nombre' => 'required|max:255|string',
-                'apellido' => 'required',
+                'apellido' => 'required|max:255|string',
                 'telefono' => 'required',
                 'fecha_nacimiento' => 'required',
-                'direccion' => 'required',
+                'direccion' => 'required|max:255|string',
             ]);
     
             $verificar = encrypt($ci);

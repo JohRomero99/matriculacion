@@ -3,6 +3,9 @@
 @section('content')
 
 <div class="conatiner-fuild">
+    <!-- <div class="text-center">
+        <p class="h4">Perfil</p>
+    </div> -->
 <div class="row">
     <div class="col-4 m-3 mt-5 mx-auto bg-white">
         <!-- <div class="text-center"><label for="">Foto</label></div> -->
@@ -15,18 +18,28 @@
     <div class="col-7 bg-white rounded mt-5 d-flex justify-content-center">
         <div class="container">
             <label for="" class="mt-4" >Nombre</label>
-            <input type="text" class="form-control w-100 mt-1 id bg border-bottom border-dark form-control border-0 shadow-none" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nombre..." >
+            <input type="text" value="{{ $update->nombre }}"  class="h orm-control w-100 mt-1 id bg border-bottom border-dark form-control border-0 shadow-none" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nombre..." >
             <label for="" class="mt-3">Apelido</label>
-            <input type="text" class="form-control w-100 mt-1 id bg border-bottom border-dark form-control border-0 shadow-none" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="apellido...">
+            <input type="text" value="{{ $update->apellido }}" class="h form-control w-100 mt-1 id bg border-bottom border-dark form-control border-0 shadow-none" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="apellido...">
             <label for="" class="mt-3">Correo</label>
-            <input type="text" class="form-control w-100 mt-1 id bg border-bottom border-dark form-control border-0 shadow-none" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ejemplo@gmail.com">
+            <!-- <input type="text" value="{{ $user->email }}" class="h form-control w-100 mt-1 id bg border-bottom border-dark form-control border-0 shadow-none" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ejemplo@gmail.com"> -->
+            <div class="row">
+                <div class="col-9">
+                <input type="text" value="{{ $user->email }}" class="h form-control w-100 mt-1 id bg border-bottom border-dark form-control border-0 shadow-none" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ejemplo@gmail.com">
+                </div>
+                <div class="col-3">
+                    <button class= "h btn btn-secondary w-100 mt-1" >Validar</button>
+                </div>
+            </div>
             <label for="" class="mt-3">Telefono</label>
-            <input type="text" class="form-control w-100 mt-1 id bg border-bottom border-dark form-control border-0 shadow-none mb-4" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="0954569745">
+            <input type="text" value="{{ $update->telefono }}" class="h form-control w-100 mt-1 id bg border-bottom border-dark form-control border-0 shadow-none" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="0954569745">
+            <label for="" class="mt-3">Telefono</label>
+            <input type="text" value="{{ $update->direccion }}" class="h form-control w-100 mt-1 id bg border-bottom border-dark form-control border-0 shadow-none mb-4" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="0954569745">
         </div>
     </div>
 </div>
     <div class="text-center">
-        <button class="btn btn-outline-dark mt-3 mb-3" >Guardar</button>
+        <button class="btn btn-secondary mt-3 mb-3 w-25" >Actualizar</button>
     </div>
 </div>
 
@@ -54,6 +67,9 @@
 .bg{
     background: #E8F0FE !important;
   }
+.h{
+    height: 45px;
+}
 </style>
 
 @endsection
