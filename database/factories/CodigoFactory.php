@@ -14,9 +14,15 @@ class CodigoFactory extends Factory
      */
     public function definition()
     {
+        // return [
+        //     'estudiante' => $this->faker->unique()->randomNumber(9),
+        //     'representante' => $this->faker->unique()->randomNumber(9),
+        //     'codigo' => Str::random(10),
+        //     'estado' => $this->faker->randomElement(['Pendiente']),
+        // ];
         return [
-            'estudiante' => $this->faker->unique()->randomNumber(9),
-            'representante' => $this->faker->unique()->randomNumber(9),
+            'estudiante' => '0955546602',
+            'representante' => '0955546601',
             'codigo' => Str::random(10),
             'estado' => $this->faker->randomElement(['Pendiente']),
         ];

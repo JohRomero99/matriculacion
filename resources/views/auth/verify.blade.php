@@ -7,7 +7,7 @@
       <div class="col-lg-7 text-center text-lg-start">
         <h1 class="display-4 fw-bold lh-1 mb-3">Introduzca su Código</h1>
         <p class="col-lg-10 fs-4 fw-bold"> Realice los siguientes pasos: </p>
-        <p class="col-lg-10 fs-4">-La cédula no deberá contenter letras.</p>
+        <p class="col-lg-10 fs-4">-Introduzca la cédula del Representante.</p>
         <p class="col-lg-10 fs-4">-Introduzca el código que fue proporcionado. Ej: GcFRjGwXXXXB.</p>
         
       </div>
@@ -34,7 +34,15 @@
                   @enderror
                   <label for="floatingPassword">Código</label>
                 </div>
-                <button class="w-100 btn btn-lg btn-dark mt-3" type="submit">Verificar   <i class="bi bi-person-check"></i></button>
+                <!-- <button class="w-100 btn btn-lg btn-dark mt-3" type="submit">Verificar   <i class="bi bi-person-check"></i></button> -->
+                <div class="row">
+                  <div class="col">
+                      <a class="text-white w-100 btn btn-lg btn-dark mt-3" href="{{ route('login') }}">Regresar</a>
+                  </div>
+                  <div class="col">
+                    <button class="w-100 btn btn-lg btn-dark mt-3" type="submit">Verificar   <i class="bi bi-person-check"></i></button>
+                  </div>
+                </div>
                 <hr class="my-4">
                 <small class="text-muted d-flex justify-content-center">NSC- Nuestra Señora Del Carmen</small>
             </div>
@@ -50,21 +58,13 @@
   .bg {
     background: #E8F0FE !important;
   }
+  a{
+    text-decoration: none;
+  }
 </style>
-</body>
-</html>
+
 
 @endsection
 
-  
 
-<!-- <div id="emailHelp" class="form-text">- ¡No compartas tu código con nadie!</div>
-                  <div id="emailHelp" class="form-text">- Ej: AbcF....xYz</div>
-                  <div id="emailHelp" class="form-text">- El código solo deberá ser ingresa una vez</div>
-                  <div class="d-flex justify-content-center">
-                  <label for="exampleInputEmail1" class="form-label mt-3"> <strong>Digita tu cédula*</strong> </label>
-
-
-                                      <div id="emailHelp" class="form-text">- Cedula del representante</div>
-                    <div id="emailHelp" class="form-text">- No letras</div> -->
 

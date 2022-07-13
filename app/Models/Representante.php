@@ -14,11 +14,6 @@ class Representante extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'cedula',
-        'nombre',
-        'email',
-    ];
-
+    protected $guarded = [];
     
 }

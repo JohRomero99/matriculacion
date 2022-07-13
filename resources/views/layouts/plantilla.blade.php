@@ -20,13 +20,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
     
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Iconos bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
@@ -51,11 +58,32 @@
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
                 <!-- @guest -->
-                    @if ( Request::route()->getName() == 'verificar' )
+                    <!-- @if ( Request::route()->getName() == 'verificar' )
                     <li class="nav-item">
                         <a class="nav-link text-dark disabled" href="#"  style='border-right: 1px solid #000;' >{{ __('Identificación') }}
                             <img src="https://i.ibb.co/bPpSXcb/numero-uno.png" width="26" height=26" class="d-inline-block align-top" alt="">
                         </a>
+                    </li>
+                        <a class="nav-link text-dark disabled opacity-25" href="#" style='border-right: 1px solid #000;'>{{ __('Completar Perfil') }}
+                            <img src="https://i.ibb.co/NNjYNvP/numero-2.png" width="26" height=26" class="d-inline-block align-top" alt="">
+                        </a>
+                    </li>
+                    </li>
+                        <a class="nav-link text-dark disabled opacity-25" href="#">{{ __('Creación de usuario') }}
+                            <img src="https://i.ibb.co/NFR91mb/numero-3.png" width="26" height=26" class="d-inline-block align-top" alt="">
+                        </a>
+                    </li>
+                    @endif
+                    @if ( Request::route()->getName() == 'pre-registro.vista')
+                    <li class="nav-item">
+                        <a class="nav-link text-dark disabled opacity-25" href="#"  style='border-right: 1px solid #000;'>{{ __('Identificación') }}
+                            <img src="https://i.ibb.co/bPpSXcb/numero-uno.png" width="26" height=26" class="d-inline-block align-top" alt="">
+                        </a>
+                    </li>
+                        <a class="nav-link text-dark disabled" href="#" style='border-right: 1px solid #000;'>{{ __('Completar Perfil') }}
+                            <img src="https://i.ibb.co/NNjYNvP/numero-2.png" width="26" height=26" class="d-inline-block align-top" alt="">
+                        </a>
+                    </li>
                     </li>
                         <a class="nav-link text-dark disabled opacity-25" href="#">{{ __('Creación de usuario') }}
                             <img src="https://i.ibb.co/NNjYNvP/numero-2.png" width="26" height=26" class="d-inline-block align-top" alt="">
@@ -64,14 +92,19 @@
                     @endif
                     @if ( Request::route()->getName() == 'register.verificar')
                     <li class="nav-item">
-                        <a class="nav-link text-dark disabled opacity-25" href="#"  style='border-right: 1px solid #000;' >{{ __('Identificación') }}
+                        <a class="nav-link text-dark disabled opacity-25" href="#"  style='border-right: 1px solid #000;'>{{ __('Identificación') }}
                             <img src="https://i.ibb.co/bPpSXcb/numero-uno.png" width="26" height=26" class="d-inline-block align-top" alt="">
                         </a>
                     </li>
-                        <a class="nav-link text-dark disabled" href="#">{{ __('Creación de usuario') }}
+                        <a class="nav-link text-dark disabled opacity-25" href="#" style='border-right: 1px solid #000;'>{{ __('Completar Perfil') }}
                             <img src="https://i.ibb.co/NNjYNvP/numero-2.png" width="26" height=26" class="d-inline-block align-top" alt="">
                         </a>
                     </li>
+                    </li>
+                        <a class="nav-link text-dark disabled " href="#">{{ __('Creación de usuario') }}
+                            <img src="https://i.ibb.co/NFR91mb/numero-3.png" width="26" height=26" class="d-inline-block align-top" alt="">
+                        </a>
+                    </li> -->
                     @endif
                 <!-- @else
                   <li class="nav-item dropdown">
@@ -96,8 +129,95 @@
     </div>
 </nav>
 
+<div class="container">
+    @if ( Request::route()->getName() == 'verificar' )
+    <div class="row text-center">
+        <div class="col wizard">
+            <div class="d-flex justify-content-center mt-2">
+                <div class="circulo d-flex justify-content-center">
+                    <i class="bi bi-bookmark-check-fill mt-3 tamaño" width="25" height="25" ></i>
+                </div>
+            </div>
+            <p>Identificación</p>
+        </div>
+        <div class="col wizard opacity-25">
+            <div class="d-flex justify-content-center mt-2">
+                <div class="circulo d-flex justify-content-center">
+                    <i class="bi bi-person-badge-fill mt-3 tamaño" width="25" height="25" ></i>
+                </div>
+            </div>
+            <p>Completar Perfil</p>
+        </div>
+        <div class="col wizard opacity-25">
+            <div class="d-flex justify-content-center mt-2">
+                <div class="circulo d-flex justify-content-center">
+                    <i class="bi bi-person-circle mt-3 tamaño" width="25" height="25" ></i>
+                </div>
+            </div>
+            <p class="d-inline-block" >Creación de usuario</p>
+        </div>
+  </div>
+  @endif
+  @if ( Request::route()->getName() == 'pre-registro.vista' )
+    <div class="row text-center">
+        <div class="col wizard">
+            <div class="d-flex justify-content-center mt-2">
+                <div class="circulo d-flex justify-content-center">
+                    <i class="bi bi-bookmark-check-fill mt-3 tamaño" width="25" height="25" ></i>
+                </div>
+            </div>
+            <p>Identificación</p>
+        </div>
+        <div class="col wizard">
+            <div class="d-flex justify-content-center mt-2">
+                <div class="circulo d-flex justify-content-center">
+                    <i class="bi bi-person-badge-fill mt-3 tamaño" width="25" height="25" ></i>
+                </div>
+            </div>
+            <p>Completar Perfil</p>
+        </div>
+        <div class="col wizard opacity-25">
+            <div class="d-flex justify-content-center mt-2">
+                <div class="circulo d-flex justify-content-center">
+                    <i class="bi bi-person-circle mt-3 tamaño" width="25" height="25" ></i>
+                </div>
+            </div>
+            <p class="d-inline-block" >Creación de usuario</p>
+        </div>
+  </div>
+  @endif
+  @if ( Request::route()->getName() == 'register.verificar' )
+    <div class="row text-center">
+        <div class="col wizard">
+            <div class="d-flex justify-content-center mt-2">
+                <div class="circulo d-flex justify-content-center">
+                    <i class="bi bi-bookmark-check-fill mt-3 tamaño" width="25" height="25" ></i>
+                </div>
+            </div>
+            <p>Identificación</p>
+        </div>
+        <div class="col wizard">
+            <div class="d-flex justify-content-center mt-2">
+                <div class="circulo d-flex justify-content-center">
+                    <i class="bi bi-person-badge-fill mt-3 tamaño" width="25" height="25" ></i>
+                </div>
+            </div>
+            <p>Completar Perfil</p>
+        </div>
+        <div class="col wizard">
+            <div class="d-flex justify-content-center mt-2">
+                <div class="circulo d-flex justify-content-center">
+                    <i class="bi bi-person-circle mt-3 tamaño" width="25" height="25" ></i>
+                </div>
+            </div>
+            <p class="d-inline-block" >Creación de usuario</p>
+        </div>
+  </div>
+  @endif
+</div>
+
 <div class="" >
-    @include('flash-message')
+    <!-- @include('flash-message') -->
     @yield('content')
 </div>
 
@@ -106,14 +226,29 @@
     /* background-color: #e8eaf6; */
     background-image: url("https://investigarte.in/wp-content/uploads/2022/06/boseto.png")
   }
-  
+  .wizard{
+      height: 50px;
+      border-bottom: 3px solid #8d4a26
+    }
   .disabled { 
     pointer-events: none;
     cursor: default;
   }
+  /* .bg-color{
+        background-color: #6b5445;
 
+    } */
+.circulo{
+    background-color: #E8F0FE;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 1px solid #000;
+}
+.tamaño{
+    font-size: 24px;
+}
 </style>
-
 </body>
 
 </div>

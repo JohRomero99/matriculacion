@@ -16,11 +16,11 @@ class CreateRepresentantesTable extends Migration
         Schema::create('representantes', function (Blueprint $table) {
             $table->id();
             $table->string('cedula');
-            $table->string('nombre');
-            $table->string('apellido');
-            $table->string('telefono');
-            $table->string('fecha_nacimiento');
-            $table->string('direccion');
+            $table->string('nombre')->nullable();
+            $table->string('apellido')->nullable();
+            $table->string('telefono')->nullable();
+            $table->string('fecha_nacimiento')->nullable();
+            $table->string('direccion')->nullable();
             $table->timestamps();
         });
     }

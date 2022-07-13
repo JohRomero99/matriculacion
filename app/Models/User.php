@@ -21,10 +21,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array<int, string>
      */
-
-    protected $guarded = [
-        'cedula',
-    ];
+    protected $guarded = [];
 
 
     /**
@@ -48,7 +45,17 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function adminlte_image()
     {
-        return 'https://picsum.photos/300/300';
+
+        if($this->image = null){
+            
+            return "https://i.ibb.co/ZHWpTGX/user.png";
+
+        }else{
+
+            return asset($this->imagen);
+
+        }
+
     }
 
     public function adminlte_desc()
@@ -58,6 +65,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function adminlte_profile_url()
     {
+       
         return '/actualizar/perfil/';
 
     }

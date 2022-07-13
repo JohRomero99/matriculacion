@@ -46,7 +46,7 @@ return [
     */
 
     'logo' => 'NSC',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'https://i.ibb.co/rbpNhJS/Virgen-NSC.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -85,7 +85,7 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
+    'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
@@ -246,25 +246,33 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
-            'text'        => 'Estado de Cuenta',
-            'url'         => 'admin/pages',
-            'icon'        => 'fas fa-fw fa-user',
-            'label_color' => 'success',
-        ],
         // [
-        //     'text'        => 'Estado de Cuenta',
-        //     'url'         => 'admin/pages',
-        //     'icon'        => 'fas fa-fw fa-user',
-        //     'label'       => 4,
+        //     'text'        => 'Home',
+        //     'url'         => '/inicio',
+        //     'icon'        => 'fas fa-fw fa-solid fa-house-user',
         //     'label_color' => 'success',
         // ],
-    //     ['header' => 'account_settings'],
-    //     [
-    //         'text' => 'profile',
-    //         'url'  => 'admin/settings',
-    //         'icon' => 'fas fa-fw fa-user',
-    //     ],
+        [
+            'text'        => 'Estado de Cuenta',
+            'url'         => '/inicio',
+            'icon'        => 'fas fa-fw fa-solid fa-file-invoice-dollar',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Pagos Realizados',
+            'url'         => '/pagos',
+            'icon'        => 'fas fa-fw fa-credit-card',
+            // 'label'       => 4,
+            'label_color' => 'success',
+        ],
+        ['header' => 'Configuraciones de la Cuenta'],
+        [
+            'text'        => 'Perfil',
+            'url'         => '/actualizar/perfil/',
+            'icon'        => 'fas fa-fw fa-user',
+            // 'label'       => 4,
+            'label_color' => 'success',
+        ],
     //     [
     //         'text' => 'change_password',
     //         'url'  => 'admin/settings',
@@ -272,7 +280,7 @@ return [
     //     ],
     //     [
     //         'text'    => 'multilevel',
-    //         'icon'    => 'fas fa-fw fa-share',
+    //         'icon'    => 'fa-solid fa-credit-card',
     //         'submenu' => [
     //             [
     //                 'text' => 'level_one',
@@ -412,7 +420,7 @@ return [
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@11',
                 ],
             ],
         ],
